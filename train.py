@@ -58,7 +58,7 @@ class BERTClassifier(nn.Module):
 # ---------------------------------------------------------------------------
 
 BATCH_SIZE = 12
-MAX_STEPS = 150
+MAX_STEPS = 160
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
  
 # Model architecture
