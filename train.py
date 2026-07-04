@@ -57,8 +57,8 @@ class BERTClassifier(nn.Module):
 # Hyperparameters (edit these directly, no CLI flags needed)
 # ---------------------------------------------------------------------------
 
-BATCH_SIZE = 8
-MAX_STEPS = 100
+BATCH_SIZE = 12
+MAX_STEPS = 150
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
  
 # Model architecture
