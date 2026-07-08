@@ -58,7 +58,7 @@ class BERTClassifier(nn.Module):
 # ---------------------------------------------------------------------------
 
 BATCH_SIZE = 8
-MAX_STEPS = 2000
+MAX_STEPS = 1
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
  
 # Model architecture
@@ -91,14 +91,15 @@ def main() -> None:
 
     start_time = time.time()
     train_df, test_df = load_imdb_data()
-    combined_df = pd.concat([train_df, test_df], ignore_index=True)
+    # combined_df = pd.concat([train_df, test_df], ignore_index=True)
 
-    train_texts, val_texts, train_labels, val_labels = train_test_split(
-        combined_df["text"].tolist(),
-        combined_df["label"].tolist(),
-        test_size=0.2,
-        random_state=42,
-    )
+    # train_texts, val_texts, train_labels, val_labels = train_test_split(
+    #     combined_df["text"].tolist(),
+    #     combined_df["label"].tolist(),
+    #     test_size=0.2,
+    #     random_state=42,
+    # )
+    train_texts, val_texts, train_labels, val_labels = train_df["text"].tolist(), test_df["text"].tolist(), train_df["label"].tolist(), test_df["label"].tolist()
 
     tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
     vocab_size = get_tokenizer_vocab_size(tokenizer)
